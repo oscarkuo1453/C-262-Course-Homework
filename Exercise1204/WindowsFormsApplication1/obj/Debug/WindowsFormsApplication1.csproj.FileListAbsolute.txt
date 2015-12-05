@@ -1,0 +1,10 @@
+C:\C#2012\Exercise1204\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\C#2012\Exercise1204\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\C#2012\Exercise1204\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\C#2012\Exercise1204\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\C#2012\Exercise1204\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\C#2012\Exercise1204\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\C#2012\Exercise1204\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\C#2012\Exercise1204\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\C#2012\Exercise1204\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.CodeAnalysisLog.xml
+C:\C#2012\Exercise1204\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.lastcodeanalysissucceeded
