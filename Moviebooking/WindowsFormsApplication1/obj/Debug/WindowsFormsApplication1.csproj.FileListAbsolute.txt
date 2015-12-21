@@ -1,0 +1,12 @@
+D:\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+D:\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+D:\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\C#2012_Ntu\T\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\C#2012_Ntu\T\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\C#2012_Ntu\T\C#2012_Exercise\201512\Moviebooking\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
