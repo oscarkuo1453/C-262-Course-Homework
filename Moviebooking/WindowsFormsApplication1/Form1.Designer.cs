@@ -125,6 +125,7 @@
             this.textBox95 = new System.Windows.Forms.TextBox();
             this.textBox94 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -224,7 +225,7 @@
             // 
             this.textBox10.Enabled = false;
             this.textBox10.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox10.Location = new System.Drawing.Point(425, 53);
+            this.textBox10.Location = new System.Drawing.Point(429, 53);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(33, 29);
             this.textBox10.TabIndex = 10;
@@ -326,7 +327,7 @@
             // 
             this.textBox20.Enabled = false;
             this.textBox20.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox20.Location = new System.Drawing.Point(816, 53);
+            this.textBox20.Location = new System.Drawing.Point(821, 53);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(33, 29);
             this.textBox20.TabIndex = 16;
@@ -334,9 +335,10 @@
             // 
             // checkinBtn
             // 
-            this.checkinBtn.Location = new System.Drawing.Point(16, 419);
+            this.checkinBtn.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.checkinBtn.Location = new System.Drawing.Point(16, 376);
             this.checkinBtn.Name = "checkinBtn";
-            this.checkinBtn.Size = new System.Drawing.Size(99, 33);
+            this.checkinBtn.Size = new System.Drawing.Size(111, 33);
             this.checkinBtn.TabIndex = 20;
             this.checkinBtn.Text = "開始訂票";
             this.checkinBtn.UseVisualStyleBackColor = true;
@@ -396,7 +398,7 @@
             // 
             this.textBox21.Enabled = false;
             this.textBox21.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox21.Location = new System.Drawing.Point(58, 99);
+            this.textBox21.Location = new System.Drawing.Point(59, 99);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(33, 29);
             this.textBox21.TabIndex = 26;
@@ -477,7 +479,7 @@
             // 
             this.textBox30.Enabled = false;
             this.textBox30.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox30.Location = new System.Drawing.Point(427, 99);
+            this.textBox30.Location = new System.Drawing.Point(429, 99);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(33, 29);
             this.textBox30.TabIndex = 38;
@@ -608,7 +610,7 @@
             // 
             this.textBox41.Enabled = false;
             this.textBox41.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox41.Location = new System.Drawing.Point(58, 145);
+            this.textBox41.Location = new System.Drawing.Point(59, 145);
             this.textBox41.Name = "textBox41";
             this.textBox41.Size = new System.Drawing.Size(33, 29);
             this.textBox41.TabIndex = 52;
@@ -698,7 +700,7 @@
             // 
             this.textBox50.Enabled = false;
             this.textBox50.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox50.Location = new System.Drawing.Point(425, 145);
+            this.textBox50.Location = new System.Drawing.Point(429, 145);
             this.textBox50.Name = "textBox50";
             this.textBox50.Size = new System.Drawing.Size(33, 29);
             this.textBox50.TabIndex = 58;
@@ -808,7 +810,7 @@
             // 
             this.textBox61.Enabled = false;
             this.textBox61.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox61.Location = new System.Drawing.Point(58, 191);
+            this.textBox61.Location = new System.Drawing.Point(59, 191);
             this.textBox61.Name = "textBox61";
             this.textBox61.Size = new System.Drawing.Size(33, 29);
             this.textBox61.TabIndex = 70;
@@ -899,7 +901,7 @@
             // 
             this.textBox70.Enabled = false;
             this.textBox70.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox70.Location = new System.Drawing.Point(421, 193);
+            this.textBox70.Location = new System.Drawing.Point(429, 193);
             this.textBox70.Name = "textBox70";
             this.textBox70.Size = new System.Drawing.Size(33, 29);
             this.textBox70.TabIndex = 79;
@@ -1008,11 +1010,12 @@
             // 
             // refreshBtn
             // 
-            this.refreshBtn.Location = new System.Drawing.Point(16, 471);
+            this.refreshBtn.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.refreshBtn.Location = new System.Drawing.Point(18, 430);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(97, 36);
             this.refreshBtn.TabIndex = 88;
-            this.refreshBtn.Text = "重新整理";
+            this.refreshBtn.Text = "付款";
             this.refreshBtn.UseVisualStyleBackColor = true;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
@@ -1105,11 +1108,23 @@
             this.label8.TabIndex = 97;
             this.label8.Text = "(最多5張票)";
             // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Font = new System.Drawing.Font("新細明體", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cancelBtn.Location = new System.Drawing.Point(18, 486);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(97, 36);
+            this.cancelBtn.TabIndex = 98;
+            this.cancelBtn.Text = "取消";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 612);
+            this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox94);
             this.Controls.Add(this.textBox95);
@@ -1314,6 +1329,7 @@
         private System.Windows.Forms.TextBox textBox95;
         private System.Windows.Forms.TextBox textBox94;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button cancelBtn;
 
 
     }

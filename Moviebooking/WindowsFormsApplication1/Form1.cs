@@ -12,18 +12,20 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        public string choisS = "";
         public int[] aAry = new int[20];
         public int[] bAry = new int[20];
         public int[] cAry = new int[20];
         public int[] dAry = new int[20];
         public int[] afindS = new int[5];
-        private TextBox[] aBoxText = new TextBox[20];
+        public TextBox[] aBoxText = new TextBox[20];
         private TextBox[] bBoxText = new TextBox[20];
         private TextBox[] cBoxText = new TextBox[20];
         private TextBox[] dBoxText = new TextBox[20];
-        public int countSeat = 0;
+        public int countSeat;
+
         private int swSeat = 0;
+        public string fresh_sw = "first";
+        public string error_seat = "none";
 
         public Form1()
         {
@@ -48,6 +50,9 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cancelBtn.Enabled = false;
+            refreshBtn.Enabled = false;
+            checkinBtn.Enabled = true;
             Random ran = new Random();
             for (int i = 0; i < aAry.Length; i++)
             {
@@ -69,61 +74,34 @@ namespace WindowsFormsApplication1
                 int r = ran.Next(0, 2);
                 dAry[i] = r;
             }
+            ////
+            //  TextBox[] aBoxText =
+            //    {textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8, textBox9,textBox10,
+            //     textBox11,textBox12,textBox13,textBox14,textBox15,textBox16,textBox17,textBox18,textBox19,textBox20};
+            ////
 
-            TextBox[] aBoxText =
-              {textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8, textBox9,textBox10,
-               textBox11,textBox12,textBox13,textBox14,textBox15,textBox16,textBox17,textBox18,textBox19,textBox20};
-
-            //  TextBox[] aBoxText = new TextBox[20];
-            //  for (int i = 0; i < 20; i++)
-            //  {
-            //      int j = i + 1;
-            //        aBoxText[i] = new TextBox();
-            //      this.Controls.Add(textBox[j]);
-            //  }
-
-            for (int i = 0; i < aBoxText.Length; i++)
+            GenerateTextBox(ref aBoxText, bBoxText, cBoxText, dBoxText);
+            for (int i = 0; i < 20; i++)
             {
                 if (aAry[i] == 1)
-                    aBoxText[i].BackColor = Color.Red;
-                else if
-                (aAry[i] == 0)
-                    aBoxText[i].BackColor = Color.Silver;
-            }
+                { aBoxText[i].BackColor = Color.Red; }
+                else
+                { aBoxText[i].BackColor = Color.Silver; }
 
-            TextBox[] bBoxText =
-            { textBox21,textBox22,textBox23,textBox24,textBox25,textBox26,textBox27,textBox28,textBox29,textBox30,
-              textBox31,textBox32,textBox33,textBox34,textBox35,textBox36,textBox37,textBox38,textBox39,textBox40 };
-            for (int i = 0; i != aBoxText.Length; i++)
-            {
                 if (bAry[i] == 1)
-                    bBoxText[i].BackColor = Color.Red;
-                else if
-                    (bAry[i] == 0)
-                    bBoxText[i].BackColor = Color.Silver;
-            }
+                { bBoxText[i].BackColor = Color.Red; }
+                else
+                { bBoxText[i].BackColor = Color.Silver; }
 
-            TextBox[] cBoxText =
-            { textBox41,textBox42,textBox43,textBox44,textBox45,textBox46,textBox47,textBox48,textBox49,textBox50,
-              textBox51,textBox52,textBox53,textBox54,textBox55,textBox56,textBox57,textBox58,textBox59,textBox60};
-            for (int i = 0; i != cBoxText.Length; i++)
-            {
                 if (cAry[i] == 1)
-                    cBoxText[i].BackColor = Color.Red;
-                else if
-                    (cAry[i] == 0)
-                    cBoxText[i].BackColor = Color.Silver;
-            }
-            TextBox[] dBoxText =
-            { textBox61,textBox62,textBox63,textBox64,textBox65,textBox66,textBox67,textBox68,textBox69,textBox70,
-              textBox71,textBox72,textBox73,textBox74,textBox75,textBox76,textBox77,textBox78,textBox79,textBox80 };
-            for (int i = 0; i != dBoxText.Length; i++)
-            {
+                { cBoxText[i].BackColor = Color.Red; }
+                else
+                { cBoxText[i].BackColor = Color.Silver; }
+
                 if (dAry[i] == 1)
-                    dBoxText[i].BackColor = Color.Red;
-                else if
-                    (dAry[i] == 0)
-                    dBoxText[i].BackColor = Color.Silver;
+                { dBoxText[i].BackColor = Color.Red; }
+                else
+                { dBoxText[i].BackColor = Color.Silver; }
             }
         }
 
@@ -145,6 +123,8 @@ namespace WindowsFormsApplication1
 
         private void textBox99_TextChanged(object sender, EventArgs e)
         {
+            checkinBtn.Enabled = true;
+            error_seat = "none";
         }
 
         private void textBox25_TextChanged(object sender, EventArgs e)
@@ -165,71 +145,89 @@ namespace WindowsFormsApplication1
 
         private void checkinBtn_Click(object sender, EventArgs e)
         {
-            countSeat = int.Parse(textBox99.Text);
+            checkinBtn.Enabled = true;
+            if (textBox99.Text == "" || textBox99.Text == null)
+                countSeat = 0;
+            else
+                countSeat = Convert.ToInt32(textBox99.Text);
+
+            if (countSeat < 1 || countSeat > 5)
+            {
+                MessageBox.Show("數量錯誤", "moveBooking");
+                error_seat = "have";
+                checkinBtn.Enabled = false;
+            }
+
             int findS = 0;
             swSeat = 0;
             bool Isfind = false;
+            textBox81.Text = "";
+
+            //
+            //  TextBox[] t9BoxAry = new TextBox[] { textBox91, textBox92, textBox93, textBox94, textBox95 };
+            //
+            TextBox[] t9BoxAry = new TextBox[5];
+            for (int i = 0; i < 5; i++)
+            {
+                TextBox tB = (TextBox)Controls["textBox" + (i + 91)];
+                t9BoxAry[i] = tB;
+                t9BoxAry[i].Text = "";
+            }
+
             for (int i = 1; i < 5; i++)
             {
-                if (i == 1) { findS = searchSeat(ref aAry, bAry, cAry, dAry, 1, countSeat); }
-                else if ((i == 2) && (findS == 999)) findS = searchSeat(ref aAry, bAry, cAry, dAry, 2, countSeat);
+                if (i == 1) findS = searchSeat(ref aAry, bAry, cAry, dAry, 1, countSeat);
+                else if (i == 2) findS = searchSeat(ref aAry, bAry, cAry, dAry, 2, countSeat);
                 else if (i == 3) findS = searchSeat(ref aAry, bAry, cAry, dAry, 3, countSeat);
                 else findS = searchSeat(ref aAry, bAry, cAry, dAry, 4, countSeat);
                 if (findS != 999) { Isfind = true; swSeat = i; break; }
             }
 
-            if (Isfind == true)
+            if ((Isfind == true) && (error_seat != "have"))
             {
                 if (swSeat == 1) textBox81.Text = "A".ToString();
                 else if (swSeat == 2) textBox81.Text = "B".ToString();
                 else if (swSeat == 3) textBox81.Text = "C".ToString();
                 else if (swSeat == 4) textBox81.Text = "D".ToString();
 
-                TextBox[] t9BoxAry = new TextBox[] { textBox91, textBox92, textBox93, textBox94, textBox95 };
-                for (int i = 0; i < 5; i++)
-                {
-                    t9BoxAry[i].Text = "";
-                }
-
                 for (int i = 0; i < countSeat; i++)
                 {
                     t9BoxAry[i].Text = (findS + i).ToString();
                 }
-                if (swSeat == 1) choisS = "A";
-                else if (swSeat == 2) choisS = "B";
-                else if (swSeat == 3) choisS = "C";
-                else if (swSeat == 4) choisS = "D";
 
-                for (int i = 0; i < afindS.Length; i++)
-                {
-                    afindS[i] = 999;
-                }
                 for (int i = 0; i < countSeat; i++)
                 {
                     afindS[i] = findS + i;
                 }
+                GenerateTextBox(ref aBoxText, bBoxText, cBoxText, dBoxText);
+                fresh_sw = "first";
+                refreshBox(ref  aAry, bAry, cAry, dAry, afindS, aBoxText, bBoxText, cBoxText, dBoxText, swSeat, countSeat, fresh_sw);
+                cancelBtn.Enabled = true;
+                refreshBtn.Enabled = true;
+                checkinBtn.Enabled = false;
+            }
+            if ((Isfind == false) && (error_seat != "have"))
+            {
+                MessageBox.Show("無符合的座位", "moveBooking");
             }
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            TextBox[] aBoxText =
-               { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8, textBox9,textBox10,
-                 textBox11,textBox12,textBox13,textBox14,textBox15,textBox16,textBox17,textBox18,textBox19,textBox20};
-
-            TextBox[] bBoxText =
-            { textBox21, textBox22, textBox23, textBox24, textBox25, textBox26, textBox27, textBox28, textBox29,textBox30,
-              textBox31, textBox32, textBox33, textBox34, textBox35, textBox36, textBox37, textBox38, textBox39,textBox40 };
-
-            TextBox[] cBoxText =
-            { textBox41, textBox42, textBox43, textBox44, textBox45, textBox46, textBox47, textBox48, textBox49,textBox50,
-              textBox51, textBox52, textBox53, textBox54, textBox55, textBox56, textBox57, textBox58, textBox59,textBox60};
-
-            TextBox[] dBoxText =
-            { textBox61, textBox62, textBox63, textBox64, textBox65, textBox66, textBox67, textBox68, textBox69,textBox70,
-              textBox71, textBox72, textBox73, textBox74, textBox75, textBox76, textBox77, textBox78, textBox79,textBox80 };
-
-            refreshBox(ref  aAry, bAry, cAry, dAry, afindS, aBoxText, bBoxText, cBoxText, dBoxText, swSeat, countSeat);
+            GenerateTextBox(ref aBoxText, bBoxText, cBoxText, dBoxText);
+            fresh_sw = "second";
+            refreshBox(ref  aAry, bAry, cAry, dAry, afindS, aBoxText, bBoxText, cBoxText, dBoxText, swSeat, countSeat, fresh_sw);
+            textBox81.Text = "";
+            textBox99.Text = "";
+            TextBox[] t9BoxAry = new TextBox[5];
+            for (int i = 0; i < 5; i++)
+            {
+                TextBox tB = (TextBox)Controls["textBox" + (i + 91)];
+                t9BoxAry[i] = tB;
+                t9BoxAry[i].Text = "";
+            }
+            refreshBtn.Enabled = false;
+            cancelBtn.Enabled = false;
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -263,6 +261,12 @@ namespace WindowsFormsApplication1
             int sSeat = 999;
             for (int i = 0; i < aTemp.Length; i++)
             {
+                if (aTemp[i] == 3)
+                    aTemp[i] = 0;
+            }
+
+            for (int i = 0; i < aTemp.Length; i++)
+            {
                 for (int j = i; (j <= i + s - 1) && (j <= 19); j++)
                 {
                     if (aTemp[j] == 1) { break; }
@@ -280,7 +284,7 @@ namespace WindowsFormsApplication1
             return sSeat;
         }
 
-        private static void refreshBox(ref int[] aAry, int[] bAry, int[] cAry, int[] dAry, int[] afindS, TextBox[] aBoxText, TextBox[] bBoxText, TextBox[] cBoxText, TextBox[] dBoxText, int n, int cs)
+        private static void refreshBox(ref int[] aAry, int[] bAry, int[] cAry, int[] dAry, int[] afindS, TextBox[] aBoxText, TextBox[] bBoxText, TextBox[] cBoxText, TextBox[] dBoxText, int n, int cs, string fresh_sw)
         {
             int[] aTemp = new int[20];
             TextBox[] tBoxText = new TextBox[20];
@@ -292,9 +296,12 @@ namespace WindowsFormsApplication1
 
             for (int i = 0; i < cs; i++)
             {
-                int t;
-                t = tfindS[i] - 1;
-                aTemp[t] = 1;
+                if (fresh_sw == "first")
+                    aTemp[tfindS[i] - 1] = 3;
+                else if (fresh_sw == "second")
+                    aTemp[tfindS[i] - 1] = 1;
+                else
+                    aTemp[tfindS[i] - 1] = 0;
             }
 
             for (int i = 0; i != tBoxText.Length; i++)
@@ -302,13 +309,56 @@ namespace WindowsFormsApplication1
                 if (aTemp[i] == 1)
                     tBoxText[i].BackColor = Color.Red;
                 else if
-                (aTemp[i] == 0)
+                (aTemp[i] == 3)
+                    tBoxText[i].BackColor = Color.Yellow;
+                else if
+                  (aTemp[i] == 0)
                     tBoxText[i].BackColor = Color.Silver;
             }
         }
 
         private void textBox74_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void GenerateTextBox(ref TextBox[] aBoxText, TextBox[] bBoxText, TextBox[] cBoxText, TextBox[] dBoxText)
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                TextBox tB1 = (TextBox)Controls["textBox" + (i + 1)];
+                TextBox tB2 = (TextBox)Controls["textBox" + (i + 21)];
+                TextBox tB3 = (TextBox)Controls["textBox" + (i + 41)];
+                TextBox tB4 = (TextBox)Controls["textBox" + (i + 61)];
+                aBoxText[i] = tB1;
+                bBoxText[i] = tB2;
+                cBoxText[i] = tB3;
+                dBoxText[i] = tB4;
+            }
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            countSeat = int.Parse(textBox99.Text);
+            GenerateTextBox(ref aBoxText, bBoxText, cBoxText, dBoxText);
+            fresh_sw = "cancel";
+            int[] tfindS = afindS;
+            refreshBox(ref  aAry, bAry, cAry, dAry, afindS, aBoxText, bBoxText, cBoxText, dBoxText, swSeat, countSeat, fresh_sw);
+
+            textBox81.Text = "";
+            textBox99.Text = "";
+            TextBox[] t9BoxAry = new TextBox[5];
+            for (int i = 0; i < 5; i++)
+            {
+                TextBox tB = (TextBox)Controls["textBox" + (i + 91)];
+                t9BoxAry[i] = tB;
+                t9BoxAry[i].Text = "";
+            }
+            refreshBtn.Enabled = false;
+            cancelBtn.Enabled = false;
         }
     }
 }
